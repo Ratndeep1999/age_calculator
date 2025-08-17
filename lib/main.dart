@@ -1,3 +1,4 @@
+import 'package:age_calculator/dashboard_screen.dart';
 import 'package:age_calculator/routes/const_routes.dart';
 import 'package:flutter/material.dart';
 import 'splash_screen.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: kSplashScreen,
       routes: {
         // TODO: add routes here
-        kSplashScreen : (context) => SplashScreen()
+        kSplashScreen : (context) => SplashScreen(),
+        kDashboardScreen : (context) => DashboardScreen()
       },
     );
   }
