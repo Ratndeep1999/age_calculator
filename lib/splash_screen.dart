@@ -1,3 +1,4 @@
+import 'package:age_calculator/routes/const_routes.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -10,12 +11,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2), );
+    Future.delayed(Duration(seconds: 2), () => navigateToNextScreen());
     super.initState();
   }
   // method to navigate
   void navigateToNextScreen(){
-    Navigator.of(context).pushReplacementNamed();
+    Navigator.of(context).pushReplacementNamed(kDashboardScreen);
   }
 
   @override
