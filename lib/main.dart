@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       initialRoute: kSplashScreen,
       routes: {
         // TODO: add routes here
-        kSplashScreen : (context) => SplashScreen();
+        kSplashScreen : (context) => SplashScreen()
       },
     );
   }
