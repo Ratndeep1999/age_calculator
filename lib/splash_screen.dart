@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigateToNextScreen(){
-    Navigator.of().pushReplacementNamed();
+    Navigator.of(context).pushReplacementNamed();
   }
 
   @override
