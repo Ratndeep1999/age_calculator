@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 2), );
     super.initState();
   }
-
+  // method to navigate
   void navigateToNextScreen(){
     Navigator.of(context).pushReplacementNamed();
   }
