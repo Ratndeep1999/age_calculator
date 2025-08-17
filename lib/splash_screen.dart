@@ -14,6 +14,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
   }
 
+  void navigateToNextScreen(){
+    Navigator.of().pushReplacementNamed();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
