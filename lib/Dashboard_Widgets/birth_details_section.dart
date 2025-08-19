@@ -12,8 +12,8 @@ class BirthDetails extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(8),
-            bottomLeft: Radius.circular(8),
+            bottomRight: Radius.circular(12),
+            bottomLeft: Radius.circular(12),
           ),
           color: Color(0xFFffffff),
           boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 8.0)],
