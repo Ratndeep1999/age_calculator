@@ -25,6 +25,7 @@ class YeMoDaBox extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
             child: Center(
+              /// yeMoDa
               child: Text(
                 yeMoDa,
                 style: TextStyle(
