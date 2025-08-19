@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class YeMoDaBox extends StatelessWidget {
-  const YeMoDaBox({super.key});
+  const YeMoDaBox({
+    super.key,
+    required this.bottomLabel,
+    required this.yeMoDa,
+    required this.boxColor,
+  });
+
+  final String bottomLabel;
+  final String yeMoDa;
+  final Color boxColor;
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +21,12 @@ class YeMoDaBox extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.18,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color: Color(0xFF6967db),
+              color: boxColor,
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
             child: Center(
               child: Text(
-                '19',
+                yeMoDa,
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,
@@ -31,7 +40,7 @@ class YeMoDaBox extends StatelessWidget {
 
         /// Label text
         Text(
-          'Years',
+          bottomLabel,
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
