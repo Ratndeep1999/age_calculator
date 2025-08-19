@@ -19,7 +19,7 @@ class BirthDetails extends StatelessWidget {
           boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 8.0)],
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
           child: Column(
             children: [
               Text(
