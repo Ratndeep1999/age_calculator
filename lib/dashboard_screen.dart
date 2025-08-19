@@ -11,10 +11,84 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(child: Column(children: [
-
-      ],)),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              /// Birthdate Section
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.175,
+                width: MediaQuery.of(context).size.width,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF3c3fad),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20, left: 25),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'BirthDate',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        SizedBox(
+                          height: 55,
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8),
+                              ),
+                              color: Colors.white,
+                            ),
+                            child: Row(
+                              children: [
+                                /// Date of Birth
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16),
+                                  child: Text(
+                                    '8/10/2003',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                                Spacer(),
+                                /// Date picker Icon
+                                IconButton(
+                                  onPressed: () {},
+                                  // splashColor: Colors.transparent,
+                                  // highlightColor: Colors.transparent,
+                                  icon: Icon(
+                                    Icons.calendar_month_sharp,
+                                    color: Color(0xFF363d59),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
