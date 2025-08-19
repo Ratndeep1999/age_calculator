@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../Birth_Details_Widgets/ye_mo_da_section.dart';
 
 class BirthDetails extends StatelessWidget {
