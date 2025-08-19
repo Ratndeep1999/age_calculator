@@ -46,98 +46,13 @@ class NextBirthday extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       /// Months
-                      Column(
-                        children: [
-                          /// Months and Days Left for Next Birthday
-                          SizedBox(
-                            height:
-                            MediaQuery.of(context).size.height *
-                                00.07,
-                            width:
-                            MediaQuery.of(context).size.height *
-                                00.07,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                color: Color(0xFFffffff),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(12),
-                                ),
-                              ),
-                              child: Center(
-                                // months and days
-                                child: Text(
-                                  '6',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height:
-                            MediaQuery.of(context).size.height *
-                                0.01,
-                          ),
-                          // label
-                          Text(
-                            'Months',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
+                      MonthDayLeft(),
                       SizedBox(
                         width:
                         MediaQuery.of(context).size.width * 0.06,
                       ),
-
                       /// Days
-                      Column(
-                        children: [
-                          /// Months and Days Left for Next Birthday
-                          SizedBox(
-                            height:
-                            MediaQuery.of(context).size.height *
-                                00.07,
-                            width:
-                            MediaQuery.of(context).size.height *
-                                00.07,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                color: Color(0xFFffffff),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(12),
-                                ),
-                              ),
-                              child: Center(
-                                // months and days
-                                child: Text(
-                                  '18',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height:
-                            MediaQuery.of(context).size.height *
-                                0.01,
-                          ),
-                          // label
-                          Text(
-                            'Days',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
+                      MonthDayLeft(),
                     ],
                   ),
                 ],
@@ -164,6 +79,59 @@ class NextBirthday extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MonthDayLeft extends StatelessWidget {
+  const MonthDayLeft({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        /// Months and Days Left for Next Birthday
+        SizedBox(
+          height:
+          MediaQuery.of(context).size.height *
+              00.07,
+          width:
+          MediaQuery.of(context).size.height *
+              00.07,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: Color(0xFFffffff),
+              borderRadius: BorderRadius.all(
+                Radius.circular(12),
+              ),
+            ),
+            child: Center(
+              // months and days
+              child: Text(
+                '6',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height:
+          MediaQuery.of(context).size.height *
+              0.01,
+        ),
+        // label
+        Text(
+          'Months',
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
     );
   }
 }
