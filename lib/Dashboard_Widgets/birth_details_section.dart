@@ -19,7 +19,7 @@ class BirthDetails extends StatelessWidget {
           boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 8.0)],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           child: Column(
             children: [
               Text(
@@ -55,26 +55,26 @@ class BirthDetails extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025,),
               Divider(thickness: 1.3,),
-              SizedBox(height: 15,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
 
               /// Olds Details Section
               // months
               OldsDetails(old: 'Months old', value: '233',),
-              SizedBox(height: 20,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
               // weeks
               OldsDetails(old: 'Weeks old', value: '1020',),
-              SizedBox(height: 20,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
               // days
               OldsDetails(old: 'Days old', value: '7039',),
-              SizedBox(height: 20,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
               // hours
               OldsDetails(old: 'Hours old(approx)', value: '168555',),
-              SizedBox(height: 20,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
               // minutes
               OldsDetails(old: 'Minutes old(approx)', value: '10112273',),
-              SizedBox(height: 20,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
               // seconds
               OldsDetails(old: 'Seconds old(approx)', value: '606735377',),
             ],
