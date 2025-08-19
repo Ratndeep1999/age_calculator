@@ -18,7 +18,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: [
               /// Birthdate Section
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.175,
+                height: MediaQuery.of(context).size.height * 0.16,
                 width: MediaQuery.of(context).size.width,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
@@ -29,16 +29,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 25),
+                    padding: const EdgeInsets.only(top: 16, left: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'BirthDate',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Colors.white,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         SizedBox(height: 10),
@@ -82,6 +82,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ],
                     ),
+                  ),
+                ),
+              ),
+              ///
+              SizedBox(
+                child: Card(
+                  color: Color(0xFFffffff),
+                  child: Column(
+                    children: [
+                      Text('You are (You age right now)'),
+                    ],
                   ),
                 ),
               ),
