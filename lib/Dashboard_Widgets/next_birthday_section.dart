@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../Next_Birthday_Widget/months_days_left.dart';
+
 class NextBirthday extends StatelessWidget {
-  const NextBirthday({
-    super.key,
-  });
+  const NextBirthday({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,7 @@ class NextBirthday extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 10,
-            horizontal: 20,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Row(
             children: [
               // First Colour
@@ -37,22 +34,18 @@ class NextBirthday extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
-                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                   /// Row for Both Box
                   Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      /// Months
-                      MonthDayLeft(),
-                      SizedBox(
-                        width:
-                        MediaQuery.of(context).size.width * 0.06,
-                      ),
-                      /// Days
-                      MonthDayLeft(),
+                      /// Months Left
+                      MonthDayLeft(monDayLeft: '6', monDayLabel: 'Months',),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.06),
+
+                      /// Days Left
+                      MonthDayLeft(monDayLeft: '18', monDayLabel: 'Days',),
                     ],
                   ),
                 ],
@@ -69,7 +62,13 @@ class NextBirthday extends StatelessWidget {
                     ),
                     children: <TextSpan>[
                       TextSpan(text: 'Your birthday is on '),
-                      TextSpan(text: 'Thursday', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                      TextSpan(
+                        text: 'Thursday',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       TextSpan(text: '  this year'),
                     ],
                   ),
@@ -79,59 +78,6 @@ class NextBirthday extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class MonthDayLeft extends StatelessWidget {
-  const MonthDayLeft({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        /// Months and Days Left for Next Birthday
-        SizedBox(
-          height:
-          MediaQuery.of(context).size.height *
-              00.07,
-          width:
-          MediaQuery.of(context).size.height *
-              00.07,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: Color(0xFFffffff),
-              borderRadius: BorderRadius.all(
-                Radius.circular(12),
-              ),
-            ),
-            child: Center(
-              // months and days
-              child: Text(
-                '6',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height:
-          MediaQuery.of(context).size.height *
-              0.01,
-        ),
-        // label
-        Text(
-          'Months',
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ],
     );
   }
 }
