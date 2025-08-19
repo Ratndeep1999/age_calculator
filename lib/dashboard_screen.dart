@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Dashboard_Widgets/birth_details_section.dart';
 import 'Dashboard_Widgets/birthdate_section.dart';
-import 'Next_Birthday_Widget/next_birthday_section.dart';
+import 'Dashboard_Widgets/next_birthday_section.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
