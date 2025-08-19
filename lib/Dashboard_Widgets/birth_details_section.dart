@@ -23,18 +23,33 @@ class BirthDetails extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text('You are (You age right now)'),
+              Text('You are (You age right now)', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
               SizedBox(height: 15),
 
               /// Years, Months and Days Box
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   /// Years
-                  YeMoDaBox(),
+                  YeMoDaBox(
+                    bottomLabel: 'Years',
+                    yeMoDa: '19',
+                    boxColor: Color(0xFF6967db),
+                  ),
+
                   /// Months
-                  YeMoDaBox(),
+                  YeMoDaBox(
+                    bottomLabel: 'Months',
+                    yeMoDa: '5',
+                    boxColor: Color(0xFFcfd99d),
+                  ),
+
                   /// Days
-                  YeMoDaBox(),
+                  YeMoDaBox(
+                    bottomLabel: 'Days',
+                    yeMoDa: '12',
+                    boxColor: Color(0xFF7eecbb),
+                  ),
                 ],
               ),
             ],
@@ -44,5 +59,3 @@ class BirthDetails extends StatelessWidget {
     );
   }
 }
-
-
