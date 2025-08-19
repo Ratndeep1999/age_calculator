@@ -40,7 +40,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     child: Column(
                       children: [
                         Text('You are (You age right now)'),
-                        SizedBox(height: 15,),
+                        SizedBox(height: 15),
 
                         /// Years, Months and Days Box
                         Row(
@@ -65,20 +65,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         style: TextStyle(
                                           fontSize: 30,
                                           color: Colors.white,
-                                          fontWeight: FontWeight.w500
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 SizedBox(height: 8),
+
                                 /// Label text
                                 Text(
                                   'Years',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.black45
+                                    color: Colors.black45,
                                   ),
                                 ),
                               ],
@@ -97,5 +98,3 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 }
-
-
