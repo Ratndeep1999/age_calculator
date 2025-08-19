@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BirthdateSection extends StatelessWidget {
-  const BirthdateSection({
+class Birthdate extends StatelessWidget {
+  const Birthdate({
     super.key,
   });
 
