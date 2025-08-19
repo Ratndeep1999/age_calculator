@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Birth_Details_Widgets/old_details_section.dart';
 import '../Birth_Details_Widgets/ye_mo_da_section.dart';
 
 class BirthDetails extends StatelessWidget {
@@ -8,7 +9,7 @@ class BirthDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: 200,
+      // height: 400,
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -22,7 +23,10 @@ class BirthDetails extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text('You are (You age right now)', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+              Text(
+                'You are (You age right now)',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              ),
               SizedBox(height: 15),
 
               /// Years, Months and Days Box
@@ -51,6 +55,12 @@ class BirthDetails extends StatelessWidget {
                   ),
                 ],
               ),
+
+              SizedBox(height: 15),
+              Divider(),
+
+              /// Olds Details Section
+              OldsDetails(),
             ],
           ),
         ),
@@ -58,3 +68,5 @@ class BirthDetails extends StatelessWidget {
     );
   }
 }
+
+
