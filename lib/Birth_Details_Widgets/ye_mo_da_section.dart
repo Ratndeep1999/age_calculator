@@ -17,8 +17,8 @@ class YeMoDaBox extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.08,
-          width: MediaQuery.of(context).size.width * 0.18,
+          height: MediaQuery.of(context).size.height * 0.09,
+          width: MediaQuery.of(context).size.width * 0.2,
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: boxColor,
@@ -29,7 +29,7 @@ class YeMoDaBox extends StatelessWidget {
               child: Text(
                 yeMoDa,
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 35,
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
                 ),
