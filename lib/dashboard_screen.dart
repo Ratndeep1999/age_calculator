@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'Dashboard_Widgets/birth_details_section.dart';
+import 'Dashboard_Widgets/age_details_section.dart';
 import 'Dashboard_Widgets/birthdate_section.dart';
 import 'Dashboard_Widgets/next_birthday_section.dart';
 
@@ -31,34 +31,37 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-          child: Column(
-            children: [
-              /// Birthdate Section
-              Birthdate(
-                selectBirthdate: () {
-                  debugPrint('click calender icon');
-                  selectBirthDate();
-                },
-                day: selectedDate.day.toString(),
-                month: selectedDate.month.toString(),
-                year: selectedDate.year.toString(),
-                weekday: weekDay[selectedDate.weekday - 1],
-              ),
-
-              /// Birth Details Section
-              BirthDetails(),
-
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-
-              /// Next Birthday Section
-              NextBirthday(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                /// Birthdate Section
+                Birthdate(
+                  selectBirthdate: () {
+                    debugPrint('click calender icon');
+                    selectBirthDate();
+                  },
+                  day: selectedDate.day.toString(),
+                  month: selectedDate.month.toString(),
+                  year: selectedDate.year.toString(),
+                  weekday: weekDay[selectedDate.weekday - 1],
+                ),
+            
+                /// Birth Details Section
+                AgeDetails(years: '', months: '', days: ''),
+            
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            
+                /// Next Birthday Section
+                NextBirthday(),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
+  /// Birthdate Section methods
   // method to show platform specific calender
   void selectBirthDate() {
     if (Platform.isAndroid) {
@@ -110,4 +113,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       },
     );
   }
+
+/// Age Details Section methods
+
 }

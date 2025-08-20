@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../Birth_Details_Widgets/old_details_section.dart';
-import '../Birth_Details_Widgets/ye_mo_da_section.dart';
+import '../Age_Details_Widgets/old_details_section.dart';
+import '../Age_Details_Widgets/ye_mo_da_section.dart';
 
-class BirthDetails extends StatelessWidget {
-  const BirthDetails({
+class AgeDetails extends StatelessWidget {
+  const AgeDetails({
     super.key,
     required this.years,
     required this.months,
@@ -31,7 +31,7 @@ class BirthDetails extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'You are (You age right now)',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
