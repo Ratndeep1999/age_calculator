@@ -27,6 +27,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
   String yearsOls = '0';
   String monthsOld = '0';
   String daysOld = '0';
+  String totalMonthsOld = '00';
+  String totalWeeksOld = '00';
+  String totalDaysOld = '00';
+  String totalHoursOld = '00';
+  String totalMinutesOld = '00';
+  String totalSecondsOld = '00';
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +56,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
 
                 /// Birth Details Section
-                AgeDetails(years: yearsOls, months: monthsOld, days: daysOld),
+                AgeDetails(
+                  years: yearsOls,
+                  months: monthsOld,
+                  days: daysOld,
+                  monthsOld: totalMonthsOld,
+                  weeksOld: totalWeeksOld,
+                  daysOld: totalDaysOld,
+                  hoursOld: totalHoursOld,
+                  minutesOld: totalMinutesOld,
+                  secondsOld: totalSecondsOld,
+                ),
 
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
 
@@ -121,6 +137,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   /// Age Details Section methods
   void calculateAge() {
+    // calculate Years, Months and Days
     DateTime now = DateTime.now();
     selectedDate = DateTime(
       selectedDate.year,
@@ -153,6 +170,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
       yearsOls = diffYears.toString();
       monthsOld = diffMonths.toString();
       daysOld = diffDays.toString();
+    });
+
+    // Calculate Age Parameters
+    int totalMonths = (diffYears * 12) + diffMonths;
+    int totalDays = today.difference(selectedDate).inDays;
+    int totalWeeks = (totalDays / 7).floor();
+    int totalHours = totalDays * 24;
+    int totalMinutes = totalHours * 60;
+    int totalSeconds = totalMinutes * 60;
+
+    setState(() {
+      totalMonthsOld = totalMonths.toString();
+      totalWeeksOld = totalWeeks.toString();
+      totalDaysOld = totalDays.toString();
+      totalHoursOld = totalHours.toString();
+      totalMinutesOld = totalMinutes.toString();
+      totalSecondsOld = totalSeconds.toString();
     });
   }
 }
