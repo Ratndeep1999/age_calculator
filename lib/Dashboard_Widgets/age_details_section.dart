@@ -8,11 +8,23 @@ class AgeDetails extends StatelessWidget {
     required this.years,
     required this.months,
     required this.days,
+    required this.monthsOld,
+    required this.weeksOld,
+    required this.daysOld,
+    required this.hoursOld,
+    required this.minutesOld,
+    required this.secondsOld,
   });
 
   final String years;
   final String months;
   final String days;
+  final String monthsOld;
+  final String weeksOld;
+  final String daysOld;
+  final String hoursOld;
+  final String minutesOld;
+  final String secondsOld;
 
   @override
   Widget build(BuildContext context) {
@@ -70,22 +82,22 @@ class AgeDetails extends StatelessWidget {
 
               /// Olds Details Section
               // months
-              OldsDetails(old: 'Months old', value: '233'),
+              OldsDetails(old: 'Months old', value: monthsOld),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // weeks
-              OldsDetails(old: 'Weeks old', value: '1020'),
+              OldsDetails(old: 'Weeks old', value: weeksOld),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // days
-              OldsDetails(old: 'Days old', value: '7039'),
+              OldsDetails(old: 'Days old', value: daysOld),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // hours
-              OldsDetails(old: 'Hours old(approx)', value: '168555'),
+              OldsDetails(old: 'Hours old(approx)', value: hoursOld),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // minutes
-              OldsDetails(old: 'Minutes old(approx)', value: '10112273'),
+              OldsDetails(old: 'Minutes old(approx)', value: minutesOld),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // seconds
-              OldsDetails(old: 'Seconds old(approx)', value: '606735377'),
+              OldsDetails(old: 'Seconds old(approx)', value: secondsOld),
             ],
           ),
         ),
