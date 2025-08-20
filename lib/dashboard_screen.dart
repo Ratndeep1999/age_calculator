@@ -33,6 +33,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   String totalHoursOld = '00';
   String totalMinutesOld = '00';
   String totalSecondsOld = '00';
+  String nextBirthdayMonth = '0';
+  String nextBirthdayDay = '0';
+  String nextBirthdayWeekday = 'Weekday';
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +74,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
 
                 /// Next Birthday Section
-                NextBirthday(),
+                NextBirthday(
+                  leftMonths: nextBirthdayMonth,
+                  leftDays: nextBirthdayDay,
+                  weekday: nextBirthdayWeekday,
+                ),
               ],
             ),
           ),
@@ -135,7 +142,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  /// Age Details Section methods
+  /// Age Details Section method
   void calculateAge() {
     // calculate Years, Months and Days
     DateTime now = DateTime.now();
@@ -187,6 +194,38 @@ class _DashboardScreenState extends State<DashboardScreen> {
       totalHoursOld = totalHours.toString();
       totalMinutesOld = totalMinutes.toString();
       totalSecondsOld = totalSeconds.toString();
+      calculateNextBirthday();
+    });
+  }
+
+  /// Next Birthday Section Method
+  void calculateNextBirthday() {
+    DateTime today = DateTime.now();
+    DateTime nextBirthday = DateTime(
+      today.year,
+      selectedDate.month,
+      selectedDate.day,
+    );
+    if (nextBirthday.isBefore(today)) {
+      nextBirthday = DateTime(
+        today.year + 1,
+        selectedDate.month,
+        selectedDate.day,
+      );
+    }
+    int monthsToNext = (nextBirthday.month - today.month + 12) % 12;
+    int daysToNext = nextBirthday.day - today.day;
+    if (daysToNext < 0) {
+      final lastMonth = DateTime(today.year, today.month, 0);
+      daysToNext += lastMonth.day;
+      monthsToNext--;
+    }
+    String dayName = weekDay[nextBirthday.weekday];
+
+    setState(() {
+      nextBirthdayMonth = monthsToNext.toString();
+      nextBirthdayDay = daysToNext.toString();
+      nextBirthdayWeekday = dayName;
     });
   }
 }
