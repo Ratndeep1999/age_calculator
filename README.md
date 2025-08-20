@@ -17,3 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ![age calculator](assets/images/age_calculator_ui.png)
+![age calculate](assets/images/age_calculate_result.png)
+![calendar](assets/images/age_calculator_android_calender.png)
+![input date](assets/images/age_calculator_android_calculator_calander2.png)
