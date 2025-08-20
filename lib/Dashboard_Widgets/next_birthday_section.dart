@@ -60,7 +60,9 @@ class NextBirthday extends StatelessWidget {
                   ),
                 ],
               ),
-              //Second Column
+              SizedBox(width: MediaQuery.of(context).size.width * (20 / 360)),
+
+              /// Next Birthday Weekday Section
               Expanded(
                 child: RichText(
                   // textAlign: TextAlign.right,
@@ -71,7 +73,7 @@ class NextBirthday extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                     children: <TextSpan>[
-                      const TextSpan(text: 'Your birthday is on '),
+                      const TextSpan(text: 'Your birthday is on  '),
                       TextSpan(
                         text: weekday,
                         style: TextStyle(
@@ -79,7 +81,7 @@ class NextBirthday extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const TextSpan(text: '  this year'),
+                      const TextSpan(text: ' this year'),
                     ],
                   ),
                 ),
