@@ -24,6 +24,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     'Saturday',
     'Sunday',
   ];
+  String yearsOls = '0';
+  String monthsOld = '0';
+  String daysOld = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +48,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   year: selectedDate.year.toString(),
                   weekday: weekDay[selectedDate.weekday - 1],
                 ),
-            
+
                 /// Birth Details Section
-                AgeDetails(years: '', months: '', days: ''),
-            
+                AgeDetails(years: yearsOls, months: monthsOld, days: daysOld),
+
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-            
+
                 /// Next Birthday Section
                 NextBirthday(),
               ],
@@ -86,6 +89,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     if (picked != null) {
       setState(() {
         selectedDate = picked;
+        calculateAge();
       });
       debugPrint(selectedDate.toString());
       debugPrint(weekDay[selectedDate.weekday - 1]);
@@ -106,6 +110,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             onDateTimeChanged: (DateTime nowDate) {
               setState(() {
                 selectedDate = nowDate;
+                calculateAge();
               });
             },
           ),
@@ -114,6 +119,40 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-/// Age Details Section methods
+  /// Age Details Section methods
+  void calculateAge() {
+    DateTime now = DateTime.now();
+    selectedDate = DateTime(
+      selectedDate.year,
+      selectedDate.month,
+      selectedDate.day,
+    );
+    DateTime today = DateTime(now.year, now.month, now.day);
+    int diffYears = today.year - selectedDate.year;
+    int diffMonths = today.month - selectedDate.month;
+    int diffDays = today.day - selectedDate.day;
 
+    // Adjust if birthday hasn't occurred this year
+    if (diffMonths < 0 || (diffMonths == 0 && diffDays < 0)) {
+      diffYears--;
+      diffMonths += 12; // Adjust months
+    }
+
+    // Adjust days if negative
+    if (diffDays < 0) {
+      final lastMonth = DateTime(now.year, now.month - 1, 0);
+      diffDays = today.day + (lastMonth.day - selectedDate.day);
+      diffMonths--; // Reduce months by 1
+    }
+
+    // Ensure non-negative values
+    diffMonths = diffMonths < 0 ? 0 : diffMonths;
+    diffDays = diffDays < 0 ? 0 : diffDays;
+
+    setState(() {
+      yearsOls = diffYears.toString();
+      monthsOld = diffMonths.toString();
+      daysOld = diffDays.toString();
+    });
+  }
 }
