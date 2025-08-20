@@ -220,8 +220,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       daysToNext += lastMonth.day;
       monthsToNext--;
     }
-    String dayName = weekDay[nextBirthday.weekday];
-
+    String dayName = weekDay[nextBirthday.weekday - 1];
     setState(() {
       nextBirthdayMonth = monthsToNext.toString();
       nextBirthdayDay = daysToNext.toString();
