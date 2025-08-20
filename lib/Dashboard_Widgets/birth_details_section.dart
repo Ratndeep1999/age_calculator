@@ -3,7 +3,16 @@ import '../Birth_Details_Widgets/old_details_section.dart';
 import '../Birth_Details_Widgets/ye_mo_da_section.dart';
 
 class BirthDetails extends StatelessWidget {
-  const BirthDetails({super.key});
+  const BirthDetails({
+    super.key,
+    required this.years,
+    required this.months,
+    required this.days,
+  });
+
+  final String years;
+  final String months;
+  final String days;
 
   @override
   Widget build(BuildContext context) {
@@ -35,48 +44,48 @@ class BirthDetails extends StatelessWidget {
                   /// Years
                   YeMoDaBox(
                     bottomLabel: 'Years',
-                    yeMoDa: '19',
+                    yeMoDa: years,
                     boxColor: Color(0xFF6967db),
                   ),
 
                   /// Months
                   YeMoDaBox(
                     bottomLabel: 'Months',
-                    yeMoDa: '5',
+                    yeMoDa: months,
                     boxColor: Color(0xFFcfd99d),
                   ),
 
                   /// Days
                   YeMoDaBox(
                     bottomLabel: 'Days',
-                    yeMoDa: '12',
+                    yeMoDa: days,
                     boxColor: Color(0xFF7eecbb),
                   ),
                 ],
               ),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.025,),
-              Divider(thickness: 1.3,),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+              Divider(thickness: 1.3),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
 
               /// Olds Details Section
               // months
-              OldsDetails(old: 'Months old', value: '233',),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+              OldsDetails(old: 'Months old', value: '233'),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // weeks
-              OldsDetails(old: 'Weeks old', value: '1020',),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+              OldsDetails(old: 'Weeks old', value: '1020'),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // days
-              OldsDetails(old: 'Days old', value: '7039',),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+              OldsDetails(old: 'Days old', value: '7039'),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // hours
-              OldsDetails(old: 'Hours old(approx)', value: '168555',),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+              OldsDetails(old: 'Hours old(approx)', value: '168555'),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // minutes
-              OldsDetails(old: 'Minutes old(approx)', value: '10112273',),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+              OldsDetails(old: 'Minutes old(approx)', value: '10112273'),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               // seconds
-              OldsDetails(old: 'Seconds old(approx)', value: '606735377',),
+              OldsDetails(old: 'Seconds old(approx)', value: '606735377'),
             ],
           ),
         ),
@@ -84,5 +93,3 @@ class BirthDetails extends StatelessWidget {
     );
   }
 }
-
-
