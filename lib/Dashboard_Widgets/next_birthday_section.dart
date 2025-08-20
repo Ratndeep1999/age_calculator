@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-
 import '../Next_Birthday_Widget/months_days_left.dart';
 
 class NextBirthday extends StatelessWidget {
-  const NextBirthday({super.key});
+  const NextBirthday({
+    super.key,
+    required this.leftMonths,
+    required this.leftDays,
+    required this.weekday,
+  });
+
+  final String leftMonths;
+  final String leftDays;
+  final String weekday;
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +27,14 @@ class NextBirthday extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Row(
             children: [
-              // First Colour
+              // First Column
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // next birthday
                   Padding(
                     padding: const EdgeInsets.only(left: 6),
-                    child: Text(
+                    child: const Text(
                       'Next Birthday',
                       style: TextStyle(
                         fontSize: 18,
@@ -38,14 +46,16 @@ class NextBirthday extends StatelessWidget {
 
                   /// Row for Both Box
                   Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       /// Months Left
-                      MonthDayLeft(monDayLeft: '6', monDayLabel: 'Months',),
+                      MonthDayLeft(
+                        monDayLeft: leftMonths,
+                        monDayLabel: 'Months',
+                      ),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.06),
 
                       /// Days Left
-                      MonthDayLeft(monDayLeft: '18', monDayLabel: 'Days',),
+                      MonthDayLeft(monDayLeft: leftDays, monDayLabel: 'Days'),
                     ],
                   ),
                 ],
@@ -61,15 +71,15 @@ class NextBirthday extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                     children: <TextSpan>[
-                      TextSpan(text: 'Your birthday is on '),
+                      const TextSpan(text: 'Your birthday is on '),
                       TextSpan(
-                        text: 'Thursday',
+                        text: weekday,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      TextSpan(text: '  this year'),
+                      const TextSpan(text: '  this year'),
                     ],
                   ),
                 ),
