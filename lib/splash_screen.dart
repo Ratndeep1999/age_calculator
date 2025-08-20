@@ -11,7 +11,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 0), () => navigateToNextScreen());
+    Future.delayed(Duration(seconds: 2), () => navigateToNextScreen());
     super.initState();
   }
   // method to navigate
