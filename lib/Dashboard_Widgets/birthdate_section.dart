@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 class Birthdate extends StatelessWidget {
   const Birthdate({
     super.key,
+    required this.selectBirthdate,
+    required this.day,
+    required this.month,
+    required this.year,
+    required this.weekday,
   });
+
+  final Function() selectBirthdate;
+  final String day;
+  final String month;
+  final String year;
+  final String weekday;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +34,7 @@ class Birthdate extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'BirthDate',
                 style: TextStyle(
                   fontSize: 18,
@@ -31,15 +42,13 @@ class Birthdate extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.015),
               SizedBox(
-                height: 55,
+                height: MediaQuery.of(context).size.height * 0.07,
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8),
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
                     color: Colors.white,
                   ),
                   child: Row(
@@ -48,18 +57,29 @@ class Birthdate extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: Text(
-                          '8/10/2003',
+                          '$day/$month/$year',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                      Text(
+                        weekday,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                       Spacer(),
 
                       /// Date picker Icon
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // todo: call method
+                          selectBirthdate();
+                        },
                         // splashColor: Colors.transparent,
                         // highlightColor: Colors.transparent,
                         icon: Icon(
