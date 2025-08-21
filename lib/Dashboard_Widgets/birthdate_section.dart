@@ -80,8 +80,8 @@ class Birthdate extends StatelessWidget {
                           // todo: call method of 'tap on icon'
                           selectBirthdate();
                         },
-                        // splashColor: Colors.transparent,
-                        // highlightColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         icon: Icon(
                           Icons.calendar_month_sharp,
                           color: Color(0xFF363d59),
