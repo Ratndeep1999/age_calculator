@@ -49,7 +49,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 /// Birthdate Section
                 Birthdate(
                   selectBirthdate: () {
-                    debugPrint('click calender icon');
                     selectBirthDate();
                   },
                   day: selectedDate.day.toString(),
@@ -144,29 +143,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   /// Age Details Section method
   void calculateAge() {
-    // calculate Years, Months and Days
+    // Get today date and time
     DateTime now = DateTime.now();
+
+    // Get selected year, month, and day
     selectedDate = DateTime(
       selectedDate.year,
       selectedDate.month,
       selectedDate.day,
     );
+
+    // Get current year, month, and day
     DateTime today = DateTime(now.year, now.month, now.day);
+
+    // Get difference of years, months, and days from selected to current date
     int diffYears = today.year - selectedDate.year;
     int diffMonths = today.month - selectedDate.month;
     int diffDays = today.day - selectedDate.day;
 
     // Adjust if birthday hasn't occurred this year
     if (diffMonths < 0 || (diffMonths == 0 && diffDays < 0)) {
-      diffYears--;
-      diffMonths += 12; // Adjust months
+      diffYears--; // decrease one year
+      diffMonths = diffMonths + 12; // Calculate accurate months
     }
 
     // Adjust days if negative
     if (diffDays < 0) {
-      final lastMonth = DateTime(now.year, now.month - 1, 0);
+      // Get last month year, month, and days. '0' means last day of previous month
+      final lastMonth = DateTime(now.year, now.month, 0);
       diffDays = today.day + (lastMonth.day - selectedDate.day);
-      diffMonths--; // Reduce months by 1
+      diffMonths--; // Reduce months by 1 because i borrowed
     }
 
     // Ensure non-negative values
@@ -200,12 +206,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   /// Next Birthday Section Method
   void calculateNextBirthday() {
+    // Get current date and time
     DateTime today = DateTime.now();
+
+    // Get current year, month, and day
+    today = DateTime(today.year, today.month, today.day);
+
+    // Get current year, selected month, and selected day
     DateTime nextBirthday = DateTime(
       today.year,
       selectedDate.month,
       selectedDate.day,
     );
+
+    // Checks next birthday is before today
     if (nextBirthday.isBefore(today)) {
       nextBirthday = DateTime(
         today.year + 1,
@@ -213,13 +227,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
         selectedDate.day,
       );
     }
+
+    // Calculate remaining months
     int monthsToNext = (nextBirthday.month - today.month + 12) % 12;
+
+    // Calculate remaining days (can be negative)
     int daysToNext = nextBirthday.day - today.day;
+
+    // Adjust days if negative
     if (daysToNext < 0) {
+
+      // Get last day of previous month
       final lastMonth = DateTime(today.year, today.month, 0);
-      daysToNext += lastMonth.day;
-      monthsToNext--;
+      daysToNext = daysToNext + lastMonth.day;
+      monthsToNext--; // Reduce months by 1 because i borrowed
     }
+
+    // Adjust accurate month
+    if (monthsToNext < 0 || (monthsToNext == 0 && monthsToNext < 0)) {
+      monthsToNext = monthsToNext + 12; // Calculate accurate months
+    }
+
+    // Ensure negative values
+    monthsToNext = monthsToNext < 0 ? 0 :monthsToNext;
+
+    // Get weekday of next birthday
     String dayName = weekDay[nextBirthday.weekday - 1];
     setState(() {
       nextBirthdayMonth = monthsToNext.toString();
