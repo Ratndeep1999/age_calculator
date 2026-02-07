@@ -1,6 +1,6 @@
 # Age Calculator (Flutter)
 
-A simple and accurate 'Age Calculator' built with 'Flutter'.  
+A simple and accurate **Age Calculator** built with **Flutter**.  
 This app calculates a user’s exact age and next birthday details based on the selected date of birth.
 
 ## ✨ Features
