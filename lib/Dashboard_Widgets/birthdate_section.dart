@@ -76,10 +76,7 @@ class Birthdate extends StatelessWidget {
 
                       /// Date picker Icon
                       IconButton(
-                        onPressed: () {
-                          // todo: call method of 'tap on icon'
-                          selectBirthdate();
-                        },
+                        onPressed: () => selectBirthdate(),
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         icon: Icon(
